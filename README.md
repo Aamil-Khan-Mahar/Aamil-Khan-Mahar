@@ -12,62 +12,63 @@
 
 </div>
 
-## 𝓣𝓱𝓮 𝓜𝓸𝓭𝓮𝓵
+## 𝓐𝓹𝓹𝓻𝓸𝓪𝓬𝓱
 
-```python
-from typing import Literal
-from pydantic import BaseModel, Field, computed_field
+> **Definition.** A model is *good* not when its validation loss is low, but when it moves the outcome it was built for:
+>
+> $$\mathbb{E}\big[\,\text{outcome} \mid \text{model deployed}\,\big] \;>\; \mathbb{E}\big[\,\text{outcome} \mid \text{baseline}\,\big]$$
+>
+> I work on the gap between those two expectations: statistics to measure it, engineering to ship it.
 
+## 𝓔𝔁𝓹𝓮𝓻𝓲𝓮𝓷𝓬𝓮
 
-class Degree(BaseModel):
-    school: str = "LUMS"
-    major: str = "Economics & Mathematics"
-    minor: str = "Computer Science"
-    year: int = Field(2025, ge=2025)
-    honours: list[str] = ["Award of Distinction", "Dean's Honour List x3"]
+**Data Scientist I, [Afiniti](https://www.afiniti.com)** (Aug 2025 to present)
 
+$$\hat{y}(x) \;=\; \sum_{k=1}^{K} w_k\, f_k(x), \qquad f_k \in \{\, \text{tree-based models},\ \text{Bayesian models (Stan)},\ \text{regression trees} \,\}$$
 
-class Aamil(BaseModel):
-    role: str = "Data Scientist @ Afiniti"
-    based_in: str = "Karachi, PK"
-    degree: Degree = Degree()
-    models: list[str] = ["Bayesian (Stan)", "tree ensembles", "transformers", "LLM agents"]
-    thinks_in: Literal["priors", "posteriors", "gradients"] = "posteriors"
-    building: str = "Masters-App: a town of Claude agents doing grad-school admin"
-    open_to: list[str] = ["ML research", "agentic AI", "weird datasets"]
+- I own production models that route calls for a contact-center client. I train, tune and maintain the ensemble above, and validate it in simulation before it goes live.
+- I build SQL ETL pipelines and do the statistics behind them: time-series decomposition, seasonality, drift detection, multicollinearity checks and feature engineering.
+- I built an R&D agentic system (LangGraph, tool calling, AWS Bedrock, Pydantic outputs) that automates model-underperformance analysis across the department.
 
-    @computed_field
-    @property
-    def vibe(self) -> str:
-        return "statistics ∩ engineering"
+**Risk and Research Intern, InfraZamin Pakistan** (Summer 2023)
 
+- I replaced a set of tracker sheets (38 steps per project, 100+ projects) with an automated intake pipeline and a Power BI dashboard, which became the company's primary project tracker.
 
-print(Aamil().model_dump_json(indent=2))
-```
+## 𝓢𝓮𝓵𝓮𝓬𝓽𝓮𝓭 𝓦𝓸𝓻𝓴
 
-<details>
-<summary><b>▶ Run it</b> (validated, I promise)</summary>
+| Project | Domain | Result |
+|---|---|---|
+| **[Masters-App](https://github.com/Aamil-Khan-Mahar/Masters-App)** | Agentic AI | A team of Claude agents running research, scoring and coaching end to end (FastAPI, React, TypeScript) |
+| **DeBuggy** | LLM pipelines | $15/15$ bugs fixed, with fix time cut from 10 to 15 min to $48.8\,\text{s}$ ($\approx -90\%$) |
+| **House boundary segmentation** | Computer vision | TransUNet on aerial imagery, compared across 5 loss functions on IoU and Dice |
+| **[Urdu news classification](https://github.com/Aamil-Khan-Mahar/UNA_Categorisation)** | NLP | Naive Bayes written from scratch matched scikit-learn exactly, at $95.24\%$ accuracy |
+| **NYSE forecasting and portfolios** | Time series, finance | $467$ stacked LSTMs with $\overline{\text{RMSE}} \approx 3.01$, feeding mean-variance portfolios |
+| **RAG research assistant** | Retrieval | Pinecone retrieval with Mixtral-8x7B and a Wikipedia fallback for out-of-scope questions |
+| **License plate recognition** | Detection and OCR | A YOLOv8 and EasyOCR pipeline, plus a CNN of $<1\text{M}$ parameters at $\approx 96\%$ accuracy over $36$ classes |
 
-```json
-{
-  "role": "Data Scientist @ Afiniti",
-  "based_in": "Karachi, PK",
-  "degree": {
-    "school": "LUMS",
-    "major": "Economics & Mathematics",
-    "minor": "Computer Science",
-    "year": 2025,
-    "honours": ["Award of Distinction", "Dean's Honour List x3"]
-  },
-  "models": ["Bayesian (Stan)", "tree ensembles", "transformers", "LLM agents"],
-  "thinks_in": "posteriors",
-  "building": "Masters-App: a town of Claude agents doing grad-school admin",
-  "open_to": ["ML research", "agentic AI", "weird datasets"],
-  "vibe": "statistics ∩ engineering"
-}
-```
+## 𝓡𝓮𝓼𝓮𝓪𝓻𝓬𝓱
 
-</details>
+- **Research Assistant, LUMS Economics** (2024 to 2025): data and analysis for a [working paper](https://ideas.repec.org/p/new/wpaper/2411.html) on Pakistan's monetary system under a Post-Keynesian framework, and a corpus of 5,000+ National Assembly debates (1947 to 2022) for computational text analysis.
+- **Computer Vision and Graphics Lab, LUMS** (2025): boundary segmentation with transformer-CNN hybrids and diffusion-based refinement.
+- **Center for Speech and Language Technologies, LUMS** (2024): MigraineAid, which uses content-blind behavioral signals to predict migraine onset.
+
+## 𝓔𝓭𝓾𝓬𝓪𝓽𝓲𝓸𝓷
+
+**BSc (Honours) Economics & Mathematics, Minor in Computer Science**, Lahore University of Management Sciences (2025)
+
+Award of Distinction, Dean's Honour List three years running, top 10% of the graduating class.
+
+## 𝓢𝓽𝓪𝓬𝓴
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=py,r,postgres,pytorch,tensorflow,sklearn,opencv,aws&theme=dark" alt="Python, R, PostgreSQL, PyTorch, TensorFlow, scikit-learn, OpenCV, AWS" />
+<br />
+<img src="https://skillicons.dev/icons?i=docker,linux,git,ts,react,fastapi,nodejs,latex&theme=dark" alt="Docker, Linux, Git, TypeScript, React, FastAPI, Node.js, LaTeX" />
+
+</div>
+
+<p align="right"><b>∎</b></p>
 
 <div align="center">
 
